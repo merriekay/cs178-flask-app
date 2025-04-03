@@ -42,7 +42,7 @@ def delete_user():
         # For now, let's just print it to the console
         print("Name to delete:", name)
         
-        flash('User deleted successfully!', 'warning') 
+        flash('User deleted successfully! Hoorah!', 'warning') 
         # Redirect to home page or another page upon successful submission
         return redirect(url_for('home'))
     else:
