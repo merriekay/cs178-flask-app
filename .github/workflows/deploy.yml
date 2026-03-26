@@ -1,5 +1,4 @@
 # .github/workflows/deploy.yml
-#
 # CS178 Auto-Deploy Workflow
 # --------------------------
 # Automatically deploys your Flask app to EC2 whenever you push to main.
@@ -14,7 +13,19 @@
 #
 # If you're starting fresh (new fork), re-do the deploy key setup from Lab 9.
 
-- name: Deploy to EC2
+name: Deploy to EC2
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy to EC2
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.EC2_HOST }}
