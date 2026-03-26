@@ -42,9 +42,6 @@ jobs:
             # Pull the latest code from GitHub
             git pull origin main
 
-            # Install any new dependencies
-            pip3 install -r requirements.txt --quiet
-
             # Stop the currently running Flask app (if any)
             # pkill looks for a process matching 'flaskapp.py' and kills it
             pkill -f "python3 flaskapp.py" || true   # '|| true' prevents failure if nothing is running
