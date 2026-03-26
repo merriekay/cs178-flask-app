@@ -26,7 +26,7 @@ jobs:
 
     steps:
       - name: Deploy to EC2
-        uses: appleboy/ssh-action@v1.0.3
+        uses: appleboy/ssh-action@v0.0.7
         with:
           host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.EC2_USER }}
@@ -36,6 +36,6 @@ jobs:
             git pull origin main
             pkill -f "python3 flaskapp.py" || true
             sleep 2
-            (nohup python3 flaskapp.py > flask.log 2>&1 &)
+            nohup python3 flaskapp.py > flask.log 2>&1 &
             sleep 1
             echo "✅ Deploy complete. Flask restarted."
